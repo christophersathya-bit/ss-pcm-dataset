@@ -21,6 +21,6 @@
 | reference | – | Short citation |
 | doi | – | DOI of the source used |
 | source_url | – | Link to the source when no DOI is available (e.g. NIST WebBook, arXiv) |
-| verification_status | – | `verified` = value checked against the cited source; `to_verify` = no primary source found yet |
+| verification_status | – | `verified` = value checked against the cited source; `needs_check` = source known but value derived/OCR/manuscript; `to_verify` = no primary source found yet |
 
 Conversions: kJ/mol → J/g = kJ/mol × 1000 / M. K → °C = K − 273.15.
