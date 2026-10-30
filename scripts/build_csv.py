@@ -108,6 +108,80 @@ add(material_name="Nickel-titanium (nitinol)", formula="NiTi (~50:50 at%)", **{"
     reference="Sharar et al., Solid-State Thermal Energy Storage Using Reversible Martensitic Transformations (Appl. Phys. Lett.)", doi="",
     source_url="https://arxiv.org/abs/1901.06990", verification_status=V)
 
+# =====================  v0.3 additions  =====================
+N = "needs_check"   # source identified, but value derived or read from OCR / unpublished draft; confirm in the original
+
+# ---------- Layered perovskites (n-CnH2n+1NH3)2MCl4 -- values as compiled in review Table 3 ----------
+ZHOU = dict(reference="Zhou, Zhang & Fang, Chem. Ind. Eng. Prog. 40(3), 1371-1383 (2021), Table 3 (review; primary refs [6],[57])",
+            doi="10.16085/j.issn.1000-6613.2020-0875", verification_status=V)
+for n, M_, Ts, Hs, Tm, Hm in [
+    (12,"Zn",[88.23],[105.01],None,None),
+    (12,"Co",[63.85,67.85],[33.72,59.30],None,None),
+    (12,"Mn",[53.85,55.85],[74.31,6.59],None,None),
+    (10,"Cu",[33.77],[55.13],36.91,7.53),
+    (10,"Zn",[80.14],[82.90],162.79,18.14),
+    (10,"Cd",[27.0,61.0],[34.5,8.25],121.0,13.13),
+    (10,"Hg",[36.73],[28.02],203.0,50.42),
+    (10,"Mn",[32.80],[77.44],None,None),
+    (10,"Co",[77.71],[74.38],165.0,13.70)]:
+    main = Ts[Hs.index(max(Hs))]
+    note = "; ".join(f"{t} C: {h} J/g" for t,h in zip(Ts,Hs))
+    if len(Ts)>1: note = "Multiple SS transitions (" + note + "); dH = sum, T = largest peak."
+    else: note = "Single SS transition."
+    if Tm and main >= Tm: note += f" Listed melting {Tm} C ({Hm} J/g) is close to the SS transition."
+    add(material_name=f"Bis(n-alkylammonium) tetrachloro-{M_} (C{n})", abbreviation=f"(C{n})2{M_}Cl4",
+        formula=f"(C{n}H{2*n+1}NH3)2{M_}Cl4", **{"class":"organometallic","subclass":"layered hybrid perovskite"},
+        transition="alkyl-chain order-disorder", T_heat_C=main, T_type="as listed in review", dH_heat_Jg=round(sum(Hs),2),
+        melting_point_C=Tm or "", notes=note + (f" Melting enthalpy {Hm} J/g." if Hm else ""), **ZHOU)
+add(material_name="Bis(n-decylammonium) tetrachloronickelate (C10)", abbreviation="(C10)2NiCl4", formula="(C10H21NH3)2NiCl4",
+    **{"class":"organometallic","subclass":"layered hybrid perovskite"}, transition="alkyl-chain order-disorder (two steps)",
+    T_heat_C=32.0, T_type="as listed in review (second step 58.0 C)", dH_heat_Jg=15.2, melting_point_C=135.0,
+    notes="Review prints one enthalpy (15.2 J/g) for two transitions (32, 58 C); assignment unclear. Melting 65.76 J/g.", **ZHOU)
+
+# ---------- Plastic crystals: T and transition entropy from Li et al. (Table S2); dH = T*dS (derived) ----------
+LI = dict(reference="Li et al., Colossal barocaloric effects in plastic crystals (Nature 2019), Suppl. Table S2; dH derived as T*dS",
+          doi="", source_url="https://arxiv.org/abs/1808.07834", verification_status=N)
+for name, f, M_, TK, dS in [
+    ("Carbon tetrabromide","CBr4",331.63,320,20.82),
+    ("Hexachloroethane","C2Cl6",236.74,344.6,23.84),
+    ("Cyclohexanol","C6H12O",100.16,263,35.16),
+    ("Pivalic acid (2,2-dimethylpropanoic acid)","C5H10O2",102.13,280,36.15),
+    ("2-Methyl-2-nitro-1-propanol","C4H9NO3",119.12,308,55.62),
+    ("2-Methyl-2-nitro-1,3-propanediol","C4H9NO4",135.12,352,73.19),
+    ("Tris(hydroxymethyl)acetic acid","C5H10O5",150.13,397,77.37),
+    ("Fullerene C60","C60",720.66,260,30.0)]:
+    add(material_name=name, formula=f, **{"class":"organic","subclass":"molecular plastic crystal"}, transition="ordered -> plastic",
+        T_heat_C=K(TK), T_type="transition T (table)", dH_heat_Jg=round(TK*dS/M_,1), molar_mass_gmol=M_,
+        notes=f"dS = {dS} J/mol/K (table); dH = T*dS = {TK*dS/1000:.2f} kJ/mol.", **LI)
+
+# ---------- Barocaloric 1-X-adamantanes (author manuscript values) ----------
+AZ = dict(reference="Aznar et al., Appl. Mater. Today 23, 101023 (2021) - values from author manuscript table",
+          doi="10.1016/j.apmt.2021.101023", verification_status=N)
+add(material_name="1-Chloroadamantane", abbreviation="1-Cl-ada", formula="C10H15Cl", **{"class":"organic","subclass":"molecular plastic crystal (barocaloric)"},
+    transition="ordered -> plastic", T_heat_C=K(254), T_cool_C=K(245), T_type="I<->II at 1 atm (heating/cooling assignment inferred)",
+    dH_heat_Jg=32.0, dH_cool_Jg=31.5, molar_mass_gmol=170.68, notes="dT/dp ~27 K/kbar; dS ~132-136 J/K/kg. Confirm in published version.", **AZ)
+add(material_name="1-Bromoadamantane", abbreviation="1-Br-ada", formula="C10H15Br", **{"class":"organic","subclass":"molecular plastic crystal (barocaloric)"},
+    transition="ordered -> plastic", T_heat_C=K(316), T_cool_C=K(308), T_type="I<->II at 1 atm (heating/cooling assignment inferred)",
+    dH_heat_Jg=32.0, dH_cool_Jg=31.0, molar_mass_gmol=215.13, notes="dT/dp ~33-36 K/kbar; dS ~102-104 J/K/kg. Confirm in published version.", **AZ)
+
+# ---------- Polyalcohol mixtures ----------
+BEN = dict(reference="Benson & Christensen, SERI/TP-255-2494 (1984), Table 2 (OCR of scanned report)",
+           doi="", source_url="https://nrel.gov/docs/legosti/old/2494.pdf", verification_status=N)
+for pe, tme, npg, T, H in [(10,80,10,79,15.6),(10,45,45,79,10.7),(15,70,15,74,15.5),(15,15,70,17,6.32),(25,50,25,73,15.8),
+                           (25,25,50,64,8.08),(30,60,10,94,18.2),(30,10,60,127,4.69),(33.3,33.3,33.3,79,14.2),
+                           (45,45,10,109,21.8),(45,10,45,140,12.2),(50,25,25,134,18.1),(70,15,15,158,25.9)]:
+    Mmix = (pe*136.15 + tme*120.15 + npg*104.15)/(pe+tme+npg)
+    add(material_name=f"PE/TME/NPG ternary ({pe}/{tme}/{npg} mol%)", abbreviation=f"PE-TME-NPG {pe}/{tme}/{npg}",
+        formula="C5H12O4 / C5H12O3 / C5H12O2", **{"class":"organic","subclass":"polyalcohol mixture"},
+        transition="solid-solid (mixture)", T_heat_C=T, T_type="as reported", dH_heat_Jg=round(H*1000/Mmix,1), molar_mass_gmol=round(Mmix,2),
+        notes=f"{H} kJ/mol of mixture. Column order PE/TME/NPG inferred from table header; check the scanned table.", **BEN)
+MSF = dict(reference="Binary Mixture of Solid-Solid PCM: Synthesis, Characterization and Experimental Study, Mater. Sci. Forum 978, 407-420 (2020)",
+           doi="", source_url="https://www.scientific.net/MSF.978.407", verification_status=V)
+for wt, th, hh, tc, hc in [(2,41.2,121,28.5,106),(6,43.1,133,28.2,119)]:
+    add(material_name=f"NPG + {wt} wt% PE", abbreviation=f"NPG-PE{wt}", formula="C5H12O2 + C5H12O4",
+        **{"class":"organic","subclass":"polyalcohol mixture"}, transition="solid-solid (mixture)",
+        T_heat_C=th, T_cool_C=tc, T_type="as reported (abstract)", dH_heat_Jg=hh, dH_cool_Jg=hc, notes="Composition wording in abstract is ambiguous about the base component.", **MSF)
+
 out = pathlib.Path(__file__).resolve().parent.parent/"data"/"ss_pcm_dataset.csv"
 with open(out,"w",newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=COLS); w.writeheader()
