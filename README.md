@@ -3,7 +3,7 @@
 An open, curated dataset of **solid–solid phase change materials** for thermal energy storage:
 transition temperatures, latent heats, and related properties, with sources.
 
-> **Status: v0.2 seed (28 materials).** The literature holds roughly a few hundred distinct SS-PCMs
+> **Status: v0.3 (63 entries).** The literature holds roughly a few hundred distinct SS-PCMs
 > (~1,000–2,000 entries counting mixtures and polymer formulations). See `data/class_overview.csv`.
 
 ## Contents
@@ -15,13 +15,14 @@ transition temperatures, latent heats, and related properties, with sources.
 | `scripts/build_csv.py` | Source of the curated records; regenerates the CSV |
 | `scripts/validate.py` | Sanity checks (ranges, DOIs, T < melting point, duplicates) |
 
-## Coverage (v0.2)
+## Coverage (v0.3)
 | Class | Rows |
 |---|---|
 | Organic – polyalcohols (NPG, PG, PE, TAM, AMPL) | 5 |
-| Organic – molecular plastic crystals | 3 |
+| Organic – polyalcohol mixtures (PE/TME/NPG ternaries, NPG+PE) | 15 |
+| Organic – molecular plastic crystals (incl. barocaloric adamantanes) | 13 |
 | Polymer – PEG-polyurethanes | 10 |
-| Organometallic – layered hybrid perovskites | 3 |
+| Organometallic – layered hybrid perovskites (Cu, Zn, Mn, Co, Cd, Hg, Ni) | 13 |
 | Inorganic – sulfates, AgI, KHF2, VO2 | 6 |
 | Metallic – NiTi | 1 |
 
@@ -34,8 +35,9 @@ which are macroscopically solid but melt at the microscale. These could be added
 
 ## Data quality
 Each row has a `verification_status`:
-- **`verified`** (27 rows): value checked against the cited source (`doi` or `source_url` given; NIST WebBook rows name the original paper).
-- **`to_verify`** (1 row, KHF2): no primary source found yet; do not use for research until sourced.
+- **`verified`** (39 rows): value read directly from the cited source (`doi` or `source_url`).
+- **`needs_check`** (23 rows): source identified, but the value is derived (ΔH = T·ΔS), read from an OCR'd scan, or taken from an author manuscript. Confirm against the original before publishing.
+- **`to_verify`** (1 row, KHF2): no primary source found yet.
 
 Reported values depend on DSC heating rate, sample purity, and onset vs. peak definition. See `T_type` and `notes`.
 
@@ -51,8 +53,7 @@ df[df.verification_status == "verified"].sort_values("dH_heat_Jg", ascending=Fal
 2. Run `python scripts/build_csv.py && python scripts/validate.py`.
 3. Open a pull request.
 
-Priority next steps: source KHF2; add polyalcohol binary mixtures (NPG–PE, NPG–TAM, PG–TAM),
-the (CnH2n+1NH3)2MCl4 series (n = 8–18; M = Cu, Zn, Mn, Co), and barocaloric plastic crystals (adamantanes, carboranes).
+Priority next steps: confirm `needs_check` rows; source KHF2; add NPG–TAM, PG–TAM and AMPL–TAM binaries; extend the perovskite series to n = 8–18; add carboranes and ionic plastic crystals.
 
 ## Key sources
 - Lloveras et al., *Nat. Commun.* 10, 1803 (2019) — doi:10.1038/s41467-019-09730-9
@@ -65,8 +66,14 @@ the (CnH2n+1NH3)2MCl4 series (n = 8–18; M = Cu, Zn, Mn, Co), and barocaloric p
 - Muramoto et al., *Front. Mater.* 7 (2020) — doi:10.3389/fmats.2020.00005
 - Sharar et al., NiTi martensitic TES — arXiv:1901.06990
 - NIST Chemistry WebBook phase-change data (PE, TAM, AMPL, adamantane, cyclohexane, CCl4)
+- Zhou, Zhang & Fang, *Chem. Ind. Eng. Prog.* 40, 1371 (2021) — doi:10.16085/j.issn.1000-6613.2020-0875
+- Li et al., Colossal barocaloric effects in plastic crystals — arXiv:1808.07834
+- Aznar et al., *Appl. Mater. Today* 23, 101023 (2021) — doi:10.1016/j.apmt.2021.101023
+- Benson & Christensen, SERI/TP-255-2494 (1984)
+- *Mater. Sci. Forum* 978, 407 (2020) — NPG/PE binary
 
 ## Changelog
+- **v0.3**: +35 rows — 10 layered perovskites, 13 PE/TME/NPG ternaries, 2 NPG+PE binaries, 10 plastic crystals; new `needs_check` status.
 - **v0.2**: sourced 9 previously unverified rows (PE, TAM, AMPL, adamantane, cyclohexane, CCl4, AgI, VO2, NiTi); corrected PE (269→297.5 J/g), TAM (285→275.8), AMPL (264→234.7), NiTi (24→13.5), VO2 (51→45); removed Fe (not a practical PCM); added `source_url` column.
 - **v0.1**: initial 29-row seed.
 
