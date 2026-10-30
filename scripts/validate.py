@@ -9,7 +9,7 @@ for r in rows:
     i = r["id"]
     if r["class"] not in CLASSES: errs.append(f"{i}: bad class {r['class']}")
     if r["verification_status"] not in {"verified","to_verify"}: errs.append(f"{i}: bad status")
-    if r["verification_status"]=="verified" and not r["doi"]: errs.append(f"{i}: verified but no DOI")
+    if r["verification_status"]=="verified" and not (r["doi"] or r["source_url"]): errs.append(f"{i}: verified but no DOI or source_url")
     for c,lo,hi in [("T_heat_C",-273,1500),("T_cool_C",-273,1500),("dH_heat_Jg",0,500),("dH_cool_Jg",0,500)]:
         if r[c]:
             v=float(r[c])
