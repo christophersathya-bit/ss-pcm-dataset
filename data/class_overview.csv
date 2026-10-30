@@ -1,0 +1,7 @@
+class,subclass,examples,approx_distinct_materials_in_literature,typical_T_range_C,typical_dH_Jg
+organic,polyalcohol (plastic crystal),"NPG, PG, PE, TAM, AMPL",10-15 pure; 100+ binary/ternary mixtures,25-190,120-300
+organic,molecular plastic crystal / barocaloric,"adamantanes, carboranes, cyclohexane, OIPCs",50-150,-100-150,20-150
+polymer,PEG-based crosslinked/grafted,"PEG-PU, PEG-cellulose, PEG-g-PS",several hundred formulations,20-65,80-160
+organometallic,layered hybrid perovskite,"(CnH2n+1NH3)2MX4, M=Cu,Zn,Mn,Co,Fe,Cd",50-150,30-120,40-150
+inorganic,ionic / superionic salts and oxides,"Li2SO4, LiNaSO4, KHF2, AgI, VO2",30-60,60-600,25-260
+metallic,shape-memory alloys and allotropes,"NiTi, Cu-Zn-Al, Fe",20-50,-50-900,10-30
