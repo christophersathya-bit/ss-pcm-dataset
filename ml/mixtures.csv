@@ -1,0 +1,16 @@
+id,name,fraction_basis,comp1,comp1_smiles,comp1_frac,comp2,comp2_smiles,comp2_frac,comp3,comp3_smiles,comp3_frac,T_trans_K,dH_Jg,dH_kJmol,dS_JmolK,T_melt_K,verification_status,doi,source_url
+SSPCM-0049,PE/TME/NPG ternary (10/80/10 mol%),mol,PE,OCC(CO)(CO)CO,0.1,TME,CC(CO)(CO)CO,0.8,NPG,CC(C)(CO)CO,0.1,352.15,129.8,15.595,44.29,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0050,PE/TME/NPG ternary (10/45/45 mol%),mol,PE,OCC(CO)(CO)CO,0.1,TME,CC(CO)(CO)CO,0.45,NPG,CC(C)(CO)CO,0.45,352.15,93.4,10.699,30.38,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0051,PE/TME/NPG ternary (15/70/15 mol%),mol,PE,OCC(CO)(CO)CO,0.15,TME,CC(CO)(CO)CO,0.7,NPG,CC(C)(CO)CO,0.15,347.15,129.0,15.499,44.65,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0052,PE/TME/NPG ternary (15/15/70 mol%),mol,PE,OCC(CO)(CO)CO,0.15,TME,CC(CO)(CO)CO,0.15,NPG,CC(C)(CO)CO,0.7,290.15,56.8,6.325,21.8,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0053,PE/TME/NPG ternary (25/50/25 mol%),mol,PE,OCC(CO)(CO)CO,0.25,TME,CC(CO)(CO)CO,0.5,NPG,CC(C)(CO)CO,0.25,346.15,131.5,15.8,45.64,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0054,PE/TME/NPG ternary (25/25/50 mol%),mol,PE,OCC(CO)(CO)CO,0.25,TME,CC(CO)(CO)CO,0.25,NPG,CC(C)(CO)CO,0.5,337.15,69.6,8.084,23.98,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0055,PE/TME/NPG ternary (30/60/10 mol%),mol,PE,OCC(CO)(CO)CO,0.3,TME,CC(CO)(CO)CO,0.6,NPG,CC(C)(CO)CO,0.1,367.15,147.5,18.194,49.55,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0056,PE/TME/NPG ternary (30/10/60 mol%),mol,PE,OCC(CO)(CO)CO,0.3,TME,CC(CO)(CO)CO,0.1,NPG,CC(C)(CO)CO,0.6,400.15,40.7,4.695,11.73,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0057,PE/TME/NPG ternary (33.3/33.3/33.3 mol%),mol,PE,OCC(CO)(CO)CO,0.3333,TME,CC(CO)(CO)CO,0.3333,NPG,CC(C)(CO)CO,0.3333,352.15,118.2,14.202,40.33,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0058,PE/TME/NPG ternary (45/45/10 mol%),mol,PE,OCC(CO)(CO)CO,0.45,TME,CC(CO)(CO)CO,0.45,NPG,CC(C)(CO)CO,0.1,382.15,173.4,21.805,57.06,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0059,PE/TME/NPG ternary (45/10/45 mol%),mol,PE,OCC(CO)(CO)CO,0.45,TME,CC(CO)(CO)CO,0.1,NPG,CC(C)(CO)CO,0.45,413.15,101.5,12.195,29.52,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0060,PE/TME/NPG ternary (50/25/25 mol%),mol,PE,OCC(CO)(CO)CO,0.5,TME,CC(CO)(CO)CO,0.25,NPG,CC(C)(CO)CO,0.25,407.15,145.8,18.101,44.46,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0061,PE/TME/NPG ternary (70/15/15 mol%),mol,PE,OCC(CO)(CO)CO,0.7,TME,CC(CO)(CO)CO,0.15,NPG,CC(C)(CO)CO,0.15,431.15,200.9,25.906,60.09,,needs_check,,https://nrel.gov/docs/legosti/old/2494.pdf
+SSPCM-0062,NPG + 2 wt% PE,wt,NPG,CC(C)(CO)CO,0.98,PE,OCC(CO)(CO)CO,0.02,,,,314.35,121.0,,,,verified,,https://www.scientific.net/MSF.978.407
+SSPCM-0063,NPG + 6 wt% PE,wt,NPG,CC(C)(CO)CO,0.94,PE,OCC(CO)(CO)CO,0.06,,,,316.25,133.0,,,,verified,,https://www.scientific.net/MSF.978.407
