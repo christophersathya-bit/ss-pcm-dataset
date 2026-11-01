@@ -6,7 +6,7 @@
 | material_name | – | Common or descriptive name |
 | abbreviation | – | Common short name, or sample code from the source |
 | formula | – | Chemical formula or composition description |
-| class | – | `organic`, `polymer`, `organometallic`, `inorganic`, `metallic` |
+| class | – | `organic`, `polymer`, `organometallic`, `inorganic`, `metallic`, `ionic` |
 | subclass | – | Finer family (e.g. polyalcohol, PEG-polyurethane, layered perovskite) |
 | transition | – | Nature of the solid–solid transition |
 | T_heat_C | °C | Transition temperature on heating |
