@@ -14,17 +14,23 @@ GROUP = {"polyalcohol (plastic crystal)":"Polyalcohols", "polyalcohol mixture":"
          "molecular plastic crystal":"Plastic crystals", "molecular plastic crystal (barocaloric)":"Plastic crystals",
          "PEG-polyurethane":"PEG-polyurethanes", "PEG-polyurethane (crosslinked)":"PEG-polyurethanes",
          "layered hybrid perovskite":"Layered perovskites"}
-def grp(r): return GROUP.get(r["subclass"], "Inorganic & metallic")
-ORDER = ["Polyalcohols","Polyalcohol mixtures","Plastic crystals","PEG-polyurethanes","Layered perovskites","Inorganic & metallic"]
+def grp(r):
+    if r["subclass"] in GROUP: return GROUP[r["subclass"]]
+    if r["class"]=="ionic": return "Ionic plastic crystals"
+    if r["class"]=="metallic": return "Shape-memory alloys"
+    if r["class"]=="organometallic": return "Layered perovskites & SCO"
+    return "Inorganic salts & oxides"
+GROUP["layered hybrid perovskite"]="Layered perovskites & SCO"
+ORDER = ["Polyalcohols","Polyalcohol mixtures","Plastic crystals","Ionic plastic crystals","PEG-polyurethanes","Layered perovskites & SCO","Inorganic salts & oxides","Shape-memory alloys"]
 pts = [(float(r["T_heat_C"]), float(r["dH_heat_Jg"]), grp(r), r) for r in rows if r["T_heat_C"] and r["dH_heat_Jg"]]
 
 # Fig 1: T vs dH, small multiples (one highlighted group per panel, others as gray context)
-fig, axs = plt.subplots(2, 3, figsize=(11, 6.4), sharex=True, sharey=True)
+fig, axs = plt.subplots(2, 4, figsize=(14, 6.6), sharex=True, sharey=True)
 for ax, g in zip(axs.flat, ORDER):
     ax.scatter([p[0] for p in pts], [p[1] for p in pts], s=14, color="#cfcdc6", lw=0)
     sel = [p for p in pts if p[2]==g]
     ax.scatter([p[0] for p in sel], [p[1] for p in sel], s=34, color=BLUE, edgecolor="white", lw=1.2, zorder=3)
-    ax.set_title(f"{g}  (n={len(sel)} plotted)", fontsize=10, color=INK, loc="left")
+    ax.set_title(f"{g} (n={len(sel)})", fontsize=9.5, color=INK, loc="left")
     ax.set_xlim(-100, 600); ax.set_ylim(0, 320); ax.set_xticks([-100,0,100,200,300,400,500,600])
 from matplotlib.lines import Line2D
 fig.legend(handles=[Line2D([],[],marker="o",ls="",color=BLUE,markersize=7,label="Materials in this class (panel title)"),
@@ -37,14 +43,14 @@ fig.savefig(FIG/"fig1_T_vs_latent_heat.svg"); plt.close(fig)
 
 # Fig 2: entries per class, stacked by verification status
 cnt = collections.Counter((grp(r), r["verification_status"]) for r in rows)
-fig, ax = plt.subplots(figsize=(8, 3.6)); left = [0]*len(ORDER)
+fig, ax = plt.subplots(figsize=(8, 4.4)); left = [0]*len(ORDER)
 for st, col, lab in [("verified",BLUE,"Verified"),("needs_check",ORANGE,"Needs check"),("to_verify",AQUA,"To verify")]:
     v = [cnt[(g,st)] for g in ORDER]
     ax.barh(ORDER, v, left=left, color=col, edgecolor="white", lw=2, label=lab, height=0.6)
     left = [a+b for a,b in zip(left, v)]
 for y, tot in enumerate(left): ax.text(tot+0.3, y, str(tot), va="center", color=INK2, fontsize=9)
 ax.invert_yaxis(); ax.set_xlabel("Number of entries"); ax.grid(axis="y", visible=False)
-ax.set_xlim(0, 17); ax.legend(frameon=False, loc="lower center", ncol=3, bbox_to_anchor=(0.5, 1.0)); ax.set_title(f"Dataset coverage (n={len(rows)})", loc="left", color=INK, pad=28)
+ax.set_xlim(0, max(left_tot for left_tot in [sum(cnt[(g,st)] for st in ("verified","needs_check","to_verify")) for g in ORDER])*1.12); ax.legend(frameon=False, loc="lower center", ncol=3, bbox_to_anchor=(0.5, 1.0)); ax.set_title(f"Dataset coverage (n={len(rows)})", loc="left", color=INK, pad=28)
 fig.savefig(FIG/"fig2_coverage_by_class.svg"); plt.close(fig)
 
 # Fig 3: PVT window, candidates 20-90 C
@@ -57,7 +63,7 @@ safe = lambda r: not any(x in r["formula"] for x in ("Cd","Hg","CBr4","C2Cl6"))
 for p in cand:
     ok = safe(p[3])
     ax.scatter(p[0], p[1], s=42, color=BLUE if ok else "#b4b2a9", marker="o" if ok else "x", lw=1.2 if not ok else 1, edgecolor="white" if ok else None, zorder=3)
-label = {"NPG":(-6,6),"AMPL":(-8,8),"NPU-10000":(4,6),"NPG-PE6":(4,6),"(C10)2MnCl4":(-6,4),"PE-TME-NPG 10/80/10":(-10,8)}
+label = {"NPG":(-6,6),"[DOA][NO3]":(4,4),"AMPL":(-8,8),"NPU-10000":(4,6),"NPG-PE6":(4,6),"(C10)2MnCl4":(-6,4),"PE-TME-NPG 10/80/10":(-10,8)}
 for p in cand:
     ab = p[3]["abbreviation"]
     if ab in label: ax.annotate(ab, (p[0],p[1]), xytext=label[ab], textcoords="offset points", fontsize=8.5, color=INK, ha="right" if label[ab][0]<0 else "left")

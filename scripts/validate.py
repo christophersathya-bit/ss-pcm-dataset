@@ -4,7 +4,7 @@ p = pathlib.Path(__file__).resolve().parent.parent/"data"/"ss_pcm_dataset.csv"
 rows = list(csv.DictReader(open(p))); errs = []
 ids = [r["id"] for r in rows]
 if len(ids) != len(set(ids)): errs.append("duplicate ids")
-CLASSES = {"organic","polymer","organometallic","inorganic","metallic"}
+CLASSES = {"organic","polymer","organometallic","inorganic","metallic","ionic"}
 for r in rows:
     i = r["id"]
     if r["class"] not in CLASSES: errs.append(f"{i}: bad class {r['class']}")

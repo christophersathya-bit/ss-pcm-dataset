@@ -27,6 +27,10 @@ SMILES = {  # material_name -> SMILES (pure molecular compounds only)
  "Tris(hydroxymethyl)acetic acid": "OCC(CO)(CO)C(=O)O",
  "1-Chloroadamantane": "ClC12CC3CC(CC(C3)C1)C2",
  "1-Bromoadamantane": "BrC12CC3CC(CC(C3)C1)C2",
+ "Methylammonium tetrafluoroborate": "C[NH3+].F[B-](F)(F)F",
+ "Quinuclidinium perrhenate": "[O-][Re](=O)(=O)=O.C1C[NH+]2CCC1CC2",
+ "Tetramethylammonium tetrachloroferrate": "C[N+](C)(C)C.Cl[Fe-](Cl)(Cl)Cl",
+ "Ammonium thiocyanate": "[NH4+].[S-]C#N",
 }
 COMP = {"PE": SMILES["Pentaerythritol"], "TME": SMILES["Pentaglycerine (trimethylolethane)"], "NPG": SMILES["Neopentyl glycol"]}
 
@@ -95,4 +99,21 @@ for r in rows.values():
     d.update(t); d.update(verification_status=r["verification_status"], doi=r["doi"], source_url=r["source_url"]); mix_rows.append(d)
 with open(ROOT/"ml"/"mixtures.csv","w",newline="") as fh:
     w=csv.DictWriter(fh, fieldnames=list(mix_rows[0])); w.writeheader(); w.writerows(mix_rows)
-print(len(mol_rows),"molecules,",len(per_rows),"perovskites,",len(mix_rows),"mixtures")
+# ---- 4) shape-memory alloys: composition (at.%) features ----
+import re as _re
+EL = ["Ni","Ti","Cu","Hf","Pd","Zr","Cr","V","Co","Pt"]
+al_rows=[]
+for r in rows.values():
+    if "shape-memory" not in r["subclass"]: continue
+    f_ = r["formula"].replace(" (~50:50 at%)","")
+    parts = dict((e, float(v)) for e,v in _re.findall(r"([A-Z][a-z]?)([0-9.]+)", f_))
+    if "Ti" in f_ and "Ti" not in parts:   # remainder notation, e.g. Ni50.17Ti
+        parts["Ti"] = round(100 - sum(parts.values()), 3)
+    if "Ni" not in parts: continue
+    d = dict(id=r["id"], alloy=r["abbreviation"] or r["material_name"], **{f"at_{e}": parts.get(e,0.0) for e in EL})
+    d["at_sum"] = round(sum(parts.values()),2); d["Ni_Ti_ratio"] = round(parts.get("Ni",0)/parts["Ti"],4) if parts.get("Ti") else ""
+    d.update(T_trans_K=round(float(r["T_heat_C"])+273.15,2), dH_Jg=f(r["dH_heat_Jg"]), verification_status=r["verification_status"], source_url=r["source_url"] or r["doi"])
+    al_rows.append(d)
+with open(ROOT/"ml"/"alloys.csv","w",newline="") as fh:
+    w=csv.DictWriter(fh, fieldnames=list(al_rows[0])); w.writeheader(); w.writerows(al_rows)
+print(len(mol_rows),"molecules,",len(per_rows),"perovskites,",len(mix_rows),"mixtures,",len(al_rows),"alloys")

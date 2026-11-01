@@ -182,6 +182,72 @@ for wt, th, hh, tc, hc in [(2,41.2,121,28.5,106),(6,43.1,133,28.2,119)]:
         **{"class":"organic","subclass":"polyalcohol mixture"}, transition="solid-solid (mixture)",
         T_heat_C=th, T_cool_C=tc, T_type="as reported (abstract)", dH_heat_Jg=hh, dH_cool_Jg=hc, notes="Composition wording in abstract is ambiguous about the base component.", **MSF)
 
+# =====================  v0.5 additions: new classes  =====================
+# ---------- Ionic plastic crystals / organic salts ----------
+LM = dict(reference="Lopez-Morales et al., J. Energy Storage 72, 108379 (2023)", doi="10.1016/j.est.2023.108379", verification_status=V)
+for an, T, H, Tm, Td, extra in [("NO3",41.4,156.6,167.0,201.9,"latent heat loss ~1% after 50 cycles; 162.5 J/cm3"),
+                                ("Cl",20.0,101.2,234.1,229.5,"3.6% loss after 50 cycles; 91.9 J/cm3"),
+                                ("FOR",29.7,58.4,58.6,139.4,"formate; 6.2% loss after 50 cycles; SS transition very close to melting")]:
+    add(material_name=f"Protic dialkylammonium salt [DOA][{an}]", abbreviation=f"[DOA][{an}]", formula=f"[DOA][{an}]",
+        **{"class":"ionic","subclass":"protic ionic plastic crystal (OIPC)"}, transition="solid-solid (two steps)",
+        T_heat_C=T, T_type="onset (heating), DSC 5 C/min", dH_heat_Jg=H, melting_point_C=Tm,
+        notes=f"dH = sum of two SS peaks. Decomposition onset {Td} C; {extra}. DOA cation as named in source; k 0.18-0.37 W/m/K across the series.", **LM)
+add(material_name="Methylammonium tetrafluoroborate", abbreviation="[MA][BF4]", formula="CH6BF4N",
+    **{"class":"ionic","subclass":"ionic plastic crystal"}, transition="ordered -> plastic", T_heat_C=K(254), T_cool_C=K(243),
+    T_type="DSC peak (heating/cooling)", dH_heat_Jg=42, molar_mass_gmol=118.87, volume_change_pct=7.5,
+    notes="Stable to ~400 K (TGA). Literature (Yamamuro): 252 K, 43.49 J/g. dT/dp ~25 K/kbar.",
+    reference="Dafonte-Rodriguez et al., Inorg. Chem. Front. (2026)", doi="10.1039/D6QI00156D", verification_status=V)
+SAV = dict(reference="Salvatori et al., J. Mater. Chem. A 11, 12140 (2023), Table 1; dH derived as T*dS", doi="10.1039/D2TA10033A", verification_status=N)
+add(material_name="Quinuclidinium perrhenate", abbreviation="HQuin-ReO4", formula="C7H14NO4Re", **{"class":"ionic","subclass":"ferroelectric molecular-ionic plastic crystal"},
+    transition="III -> II (main); II -> I at 367 K", T_heat_C=K(344), T_cool_C=K(341), T_type="transition (table)", dH_heat_Jg=round(344*59.1/1000,1),
+    molar_mass_gmol=362.4, notes="dS 59.1 J/kg/K (III/II) + 15.6 J/kg/K (II/I at 367 K, ~5.7 J/g). dV 0.011 cm3/g.", **SAV)
+add(material_name="Tetramethylammonium tetrachloroferrate", abbreviation="TMA-FeCl4", formula="C4H12Cl4FeN", **{"class":"ionic","subclass":"ferroelectric molecular-ionic plastic crystal"},
+    transition="II -> I (main); III -> II at 343 K", T_heat_C=K(384), T_cool_C=K(381), T_type="transition (table)", dH_heat_Jg=round(384*58.7/1000,1),
+    molar_mass_gmol=271.8, notes="dS 58.7 J/kg/K (II/I) + 8.3 J/kg/K (III/II, ~2.8 J/g). dV 0.021 cm3/g.", **SAV)
+add(material_name="Lithium carba-closo-dodecaborate", abbreviation="LiCB11H12", formula="LiCB11H12", **{"class":"ionic","subclass":"carborane salt (plastic crystal)"},
+    transition="II -> I order-disorder", T_heat_C=K(390), T_type="DSC, 0 GPa (390 +/- 10 K)", dH_heat_Jg=round(390*208/1000,1), volume_change_pct=13,
+    notes="dS ~208 J/kg/K at 1 atm; dH derived as T*dS. Colossal barocaloric; Li-ion diffusion in high-T phase.",
+    reference="Zeng et al., Colossal reversible barocaloric effects in a plastic crystal ... (2023)", doi="", source_url="https://arxiv.org/abs/2302.06993", verification_status=N)
+
+# ---------- Spin-crossover ----------
+add(material_name="Trinuclear spin-crossover complex Fe3(bntrz)6(tcnset)6", abbreviation="FBT", formula="Fe3(bntrz)6(tcnset)6",
+    **{"class":"organometallic","subclass":"spin-crossover complex"}, transition="low spin -> high spin", T_heat_C=K(318), T_cool_C=K(316),
+    T_type="DSC peak", dH_heat_Jg=25, notes="25 +/- 2 kJ/kg; dS 80 J/kg/K; hysteresis 2 K; dT/dp 25 K/kbar; dV 2.05e-5 m3/kg.",
+    reference="Romanini et al., Adv. Mater. 33, 2008076 (2021)", doi="10.1002/adma.202008076", verification_status=V)
+
+# ---------- More inorganic salts ----------
+add(material_name="Ammonium thiocyanate", abbreviation="NH4SCN", formula="CH4N2S", **{"class":"inorganic","subclass":"ammonium salt (order-disorder)"},
+    transition="monoclinic -> orthorhombic", T_heat_C=K(364), T_cool_C=K(335), T_type="transition, ambient pressure", dH_heat_Jg=43,
+    molar_mass_gmol=76.12, volume_change_pct=5, notes="Barocaloric thermal battery concept; dT/dp ~0.3 K/MPa; dS_max ~129 J/kg/K.",
+    reference="Zhang et al., Barocaloric thermal batteries (2021)", doi="", source_url="https://arxiv.org/abs/2103.04348", verification_status=V)
+
+# ---------- NiTi-based shape-memory alloys ----------
+add(material_name="NiTi, solution heat-treated (Ni50.28Ti49.36)", abbreviation="Ni50.28Ti49.36-SHT", formula="Ni50.28Ti49.36",
+    **{"class":"metallic","subclass":"NiTi-based shape-memory alloy"}, transition="martensite -> austenite", T_heat_C=78, T_cool_C=38,
+    T_type="DSC, 10 C/min", dH_heat_Jg=28, notes="Solution annealing raised latent heat from 12 (as-received) to 28 J/g.",
+    reference="Sharar et al., High-capacity high-power TES using solid-solid martensitic transformations", doi="", source_url="https://arxiv.org/abs/2011.12339", verification_status=V)
+SH = dict(reference="Sharar et al., Suppl. Table S1 (compiled from original literature)", doi="", source_url="https://arxiv.org/abs/1901.06990", verification_status=V)
+SMA = [("Ni48.62Ti",90,27),("Ni49.5Ti",91,30.1),("Ni49.6Ti",-3.8,18.3),("Ni49.63Ti",46.7,21.6),("Ni49.68Ti",81.9,31.7),("Ni49.74Ti",86.3,22.9),
+ ("Ni50.01Ti",52.7,27),("Ni50.13Ti",-21.9,14.9),("Ni50.17Ti",-39.1,9.1),("Ni50.18Ti",47.2,26.7),("Ni50.21Ti",4.1,16.5),("Ni50.42Ti",17,23.3),
+ ("Ni50.49Ti",17.8,23.9),("Ni50.58Ti",-10.8,18.8),
+ ("Ni50Ti49.9Cr0.1",89.25,30),("Ni50Ti49.75Cr0.25",63.25,23.7),("Ni50Ti49.5Cr0.5",42.35,23.3),("Ni50Ti49.2Cr0.8",13.05,20.8),("Ni50Ti49Cr1",-12.8,15.2),("Ni50Ti48.75Cr1.25",-46.2,10.1),
+ ("Ni50Ti49.9V0.1",101.15,30.1),("Ni50Ti49.75V0.25",82.9,24.9),("Ni50Ti49V1",64.5,23.2),("Ni50Ti48V2",54.7,22.2),("Ni50Ti47V3",35.9,16.9),("Ni50Ti45V5",18.3,12),("Ni50Ti44V6",15.15,10.6),
+ ("Ni43Ti52Cu5",73.2,24.2),("Ni43.5Ti51.5Cu5",77.6,24.7),("Ni44Ti51Cu5",77.75,24.1),("Ni44.25Ti50.75Cu5",73.95,25.9),("Ni44.5Ti50.5Cu5",74.75,25.7),("Ni44.6Ti50.4Cu5",77.9,29.1),
+ ("Ni44.75Ti50.25Cu5",81.55,23.6),("Ni45Ti50Cu5",80.65,29.3),("Ni45.2Ti49.8Cu5",57.15,25.2),("Ni45.3Ti49.7Cu5",48.4,24.3),("Ni45.7Ti49.3Cu5",30.05,21.7),("Ni45.9Ti49.1Cu5",10.45,14.3),
+ ("Ni46.2Ti48.8Cu5",-21.4,14),("Ni47.5Ti50Cu2.5",94.2,31),("Ni42.5Ti50Cu7.5",76.8,27.9),
+ ("Ni49.8Ti48.2Hf2",103.5,29.3),("Ni49.8Ti46.2Hf4",114.65,29.1),("Ni49.8Ti44.2Hf6",128.35,29.1),("Ni49.8Ti42.2Hf8",160.2,30.3),
+ ("Ni45Ti50Pd5",72.2,25.8),("Ni43Ti50Pd7",66.2,23.8),("Ni41Ti50Pd9",63.25,18.4),("Ni37Ti50Pd13",86.05,16.4),("Ni35Ti50Pd15",99.35,17.7),("Ni33Ti50Pd17",118.45,18.7),
+ ("Ni29Ti50Pd21",160.45,21.6),("Ni20Ti50Pd30",267.85,29.7),
+ ("Ni49.5Ti49.5Zr1",100.6,30.6),("Ni49.5Ti47.5Zr3",102.7,23.3),("Ni49.5Ti45.5Zr5",104,27),("Ni49.5Ti40.5Zr10",142,27.3),("Ni49.5Ti35.5Zr15",221.65,28.8),("Ni49.5Ti30.5Zr20",322.55,35),
+ ("Ni28.5Ti50.5Pt21",330.85,22.4),("Ni43.5Ti50Cu5Co1.5",53.85,25.9),("Ni42Ti50Cu5Co3",30.2,23.8),("Ni40Ti50Cu5Co5",-5.35,21.6),
+ ("Ni42.9Ti50Cu5Pd2.1",66.35,14.9),("Ni41.9Ti50Cu5Pd3.1",73.1,16),("Ni39.2Ti50Cu5Pd5.8",67.45,14.2),("Ni38.3Ti50Cu5Pd6.7",65.65,13.6),("Ni32.2Ti50Cu5Pd12.8",59.85,12.3)]
+import re as _re
+for comp, T, H in SMA:
+    els = [e for e in _re.findall(r"[A-Z][a-z]?", comp) if e not in ("Ni","Ti")]
+    sub = "NiTi binary" if not els else "NiTi-" + "-".join(els)
+    add(material_name=f"{comp} shape-memory alloy", abbreviation=comp, formula=comp, **{"class":"metallic","subclass":f"NiTi-based shape-memory alloy ({sub})"},
+        transition="martensite -> austenite", T_heat_C=T, T_type="M->A transition (compiled table)", dH_heat_Jg=H, notes="Composition in at.%.", **SH)
+
 out = pathlib.Path(__file__).resolve().parent.parent/"data"/"ss_pcm_dataset.csv"
 with open(out,"w",newline="") as fh:
     w = csv.DictWriter(fh, fieldnames=COLS); w.writeheader()
