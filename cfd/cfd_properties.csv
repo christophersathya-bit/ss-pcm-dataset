@@ -62,3 +62,82 @@ SSPCM-0060,PE/TME/NPG ternary (50/25/25 mol%),PE-TME-NPG 50/25/25,organic,134,,a
 SSPCM-0061,PE/TME/NPG ternary (70/15/15 mol%),PE-TME-NPG 70/15/15,organic,158,,as reported,,200900,,,,,,,,,,,,,,,https://nrel.gov/docs/legosti/old/2494.pdf,,,,,,needs_check
 SSPCM-0062,NPG + 2 wt% PE,NPG-PE2,organic,41.2,28.5,as reported (abstract),12.7,121000,106000,,,,,,,,,,,,,,https://www.scientific.net/MSF.978.407,,,,,,verified
 SSPCM-0063,NPG + 6 wt% PE,NPG-PE6,organic,43.1,28.2,as reported (abstract),14.9,133000,119000,,,,,,,,,,,,,,https://www.scientific.net/MSF.978.407,,,,,,verified
+SSPCM-0064,Protic dialkylammonium salt [DOA][NO3],[DOA][NO3],ionic,41.4,,"onset (heating), DSC 5 C/min",,156600,,,,,,,,,,,,,167.0,,10.1016/j.est.2023.108379,,,,,,verified
+SSPCM-0065,Protic dialkylammonium salt [DOA][Cl],[DOA][Cl],ionic,20.0,,"onset (heating), DSC 5 C/min",,101200,,,,,,,,,,,,,234.1,,10.1016/j.est.2023.108379,,,,,,verified
+SSPCM-0066,Protic dialkylammonium salt [DOA][FOR],[DOA][FOR],ionic,29.7,,"onset (heating), DSC 5 C/min",,58400,,,,,,,,,,,,,58.6,,10.1016/j.est.2023.108379,,,,,,verified
+SSPCM-0067,Methylammonium tetrafluoroborate,[MA][BF4],ionic,-19.1,-30.1,DSC peak (heating/cooling),11.0,42000,,,,,,,,,,,,,,7.5,10.1039/D6QI00156D,,,,,,verified
+SSPCM-0068,Quinuclidinium perrhenate,HQuin-ReO4,ionic,70.9,67.9,transition (table),3.0,20300,,,,,,,,,,,,,,,10.1039/D2TA10033A,,,,,,needs_check
+SSPCM-0069,Tetramethylammonium tetrachloroferrate,TMA-FeCl4,ionic,110.9,107.9,transition (table),3.0,22500,,,,,,,,,,,,,,,10.1039/D2TA10033A,,,,,,needs_check
+SSPCM-0070,Lithium carba-closo-dodecaborate,LiCB11H12,ionic,116.9,,"DSC, 0 GPa (390 +/- 10 K)",,81100,,,,,,,,,,,,,,13,https://arxiv.org/abs/2302.06993,,,,,,needs_check
+SSPCM-0071,Trinuclear spin-crossover complex Fe3(bntrz)6(tcnset)6,FBT,organometallic,44.9,42.9,DSC peak,2.0,25000,,,,,,,,,,,,,,,10.1002/adma.202008076,,,,,,verified
+SSPCM-0072,Ammonium thiocyanate,NH4SCN,inorganic,90.9,61.9,"transition, ambient pressure",29.0,43000,,,,,,,,,,,,,,5,https://arxiv.org/abs/2103.04348,,,,,,verified
+SSPCM-0073,"NiTi, solution heat-treated (Ni50.28Ti49.36)",Ni50.28Ti49.36-SHT,metallic,78,38,"DSC, 10 C/min",40.0,28000,,,,,,,,,,,,,,,https://arxiv.org/abs/2011.12339,,,,,,verified
+SSPCM-0074,Ni48.62Ti shape-memory alloy,Ni48.62Ti,metallic,90,,M->A transition (compiled table),,27000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0075,Ni49.5Ti shape-memory alloy,Ni49.5Ti,metallic,91,,M->A transition (compiled table),,30100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0076,Ni49.6Ti shape-memory alloy,Ni49.6Ti,metallic,-3.8,,M->A transition (compiled table),,18300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0077,Ni49.63Ti shape-memory alloy,Ni49.63Ti,metallic,46.7,,M->A transition (compiled table),,21600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0078,Ni49.68Ti shape-memory alloy,Ni49.68Ti,metallic,81.9,,M->A transition (compiled table),,31700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0079,Ni49.74Ti shape-memory alloy,Ni49.74Ti,metallic,86.3,,M->A transition (compiled table),,22900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0080,Ni50.01Ti shape-memory alloy,Ni50.01Ti,metallic,52.7,,M->A transition (compiled table),,27000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0081,Ni50.13Ti shape-memory alloy,Ni50.13Ti,metallic,-21.9,,M->A transition (compiled table),,14900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0082,Ni50.17Ti shape-memory alloy,Ni50.17Ti,metallic,-39.1,,M->A transition (compiled table),,9100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0083,Ni50.18Ti shape-memory alloy,Ni50.18Ti,metallic,47.2,,M->A transition (compiled table),,26700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0084,Ni50.21Ti shape-memory alloy,Ni50.21Ti,metallic,4.1,,M->A transition (compiled table),,16500,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0085,Ni50.42Ti shape-memory alloy,Ni50.42Ti,metallic,17,,M->A transition (compiled table),,23300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0086,Ni50.49Ti shape-memory alloy,Ni50.49Ti,metallic,17.8,,M->A transition (compiled table),,23900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0087,Ni50.58Ti shape-memory alloy,Ni50.58Ti,metallic,-10.8,,M->A transition (compiled table),,18800,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0088,Ni50Ti49.9Cr0.1 shape-memory alloy,Ni50Ti49.9Cr0.1,metallic,89.25,,M->A transition (compiled table),,30000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0089,Ni50Ti49.75Cr0.25 shape-memory alloy,Ni50Ti49.75Cr0.25,metallic,63.25,,M->A transition (compiled table),,23700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0090,Ni50Ti49.5Cr0.5 shape-memory alloy,Ni50Ti49.5Cr0.5,metallic,42.35,,M->A transition (compiled table),,23300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0091,Ni50Ti49.2Cr0.8 shape-memory alloy,Ni50Ti49.2Cr0.8,metallic,13.05,,M->A transition (compiled table),,20800,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0092,Ni50Ti49Cr1 shape-memory alloy,Ni50Ti49Cr1,metallic,-12.8,,M->A transition (compiled table),,15200,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0093,Ni50Ti48.75Cr1.25 shape-memory alloy,Ni50Ti48.75Cr1.25,metallic,-46.2,,M->A transition (compiled table),,10100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0094,Ni50Ti49.9V0.1 shape-memory alloy,Ni50Ti49.9V0.1,metallic,101.15,,M->A transition (compiled table),,30100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0095,Ni50Ti49.75V0.25 shape-memory alloy,Ni50Ti49.75V0.25,metallic,82.9,,M->A transition (compiled table),,24900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0096,Ni50Ti49V1 shape-memory alloy,Ni50Ti49V1,metallic,64.5,,M->A transition (compiled table),,23200,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0097,Ni50Ti48V2 shape-memory alloy,Ni50Ti48V2,metallic,54.7,,M->A transition (compiled table),,22200,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0098,Ni50Ti47V3 shape-memory alloy,Ni50Ti47V3,metallic,35.9,,M->A transition (compiled table),,16900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0099,Ni50Ti45V5 shape-memory alloy,Ni50Ti45V5,metallic,18.3,,M->A transition (compiled table),,12000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0100,Ni50Ti44V6 shape-memory alloy,Ni50Ti44V6,metallic,15.15,,M->A transition (compiled table),,10600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0101,Ni43Ti52Cu5 shape-memory alloy,Ni43Ti52Cu5,metallic,73.2,,M->A transition (compiled table),,24200,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0102,Ni43.5Ti51.5Cu5 shape-memory alloy,Ni43.5Ti51.5Cu5,metallic,77.6,,M->A transition (compiled table),,24700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0103,Ni44Ti51Cu5 shape-memory alloy,Ni44Ti51Cu5,metallic,77.75,,M->A transition (compiled table),,24100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0104,Ni44.25Ti50.75Cu5 shape-memory alloy,Ni44.25Ti50.75Cu5,metallic,73.95,,M->A transition (compiled table),,25900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0105,Ni44.5Ti50.5Cu5 shape-memory alloy,Ni44.5Ti50.5Cu5,metallic,74.75,,M->A transition (compiled table),,25700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0106,Ni44.6Ti50.4Cu5 shape-memory alloy,Ni44.6Ti50.4Cu5,metallic,77.9,,M->A transition (compiled table),,29100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0107,Ni44.75Ti50.25Cu5 shape-memory alloy,Ni44.75Ti50.25Cu5,metallic,81.55,,M->A transition (compiled table),,23600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0108,Ni45Ti50Cu5 shape-memory alloy,Ni45Ti50Cu5,metallic,80.65,,M->A transition (compiled table),,29300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0109,Ni45.2Ti49.8Cu5 shape-memory alloy,Ni45.2Ti49.8Cu5,metallic,57.15,,M->A transition (compiled table),,25200,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0110,Ni45.3Ti49.7Cu5 shape-memory alloy,Ni45.3Ti49.7Cu5,metallic,48.4,,M->A transition (compiled table),,24300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0111,Ni45.7Ti49.3Cu5 shape-memory alloy,Ni45.7Ti49.3Cu5,metallic,30.05,,M->A transition (compiled table),,21700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0112,Ni45.9Ti49.1Cu5 shape-memory alloy,Ni45.9Ti49.1Cu5,metallic,10.45,,M->A transition (compiled table),,14300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0113,Ni46.2Ti48.8Cu5 shape-memory alloy,Ni46.2Ti48.8Cu5,metallic,-21.4,,M->A transition (compiled table),,14000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0114,Ni47.5Ti50Cu2.5 shape-memory alloy,Ni47.5Ti50Cu2.5,metallic,94.2,,M->A transition (compiled table),,31000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0115,Ni42.5Ti50Cu7.5 shape-memory alloy,Ni42.5Ti50Cu7.5,metallic,76.8,,M->A transition (compiled table),,27900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0116,Ni49.8Ti48.2Hf2 shape-memory alloy,Ni49.8Ti48.2Hf2,metallic,103.5,,M->A transition (compiled table),,29300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0117,Ni49.8Ti46.2Hf4 shape-memory alloy,Ni49.8Ti46.2Hf4,metallic,114.65,,M->A transition (compiled table),,29100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0118,Ni49.8Ti44.2Hf6 shape-memory alloy,Ni49.8Ti44.2Hf6,metallic,128.35,,M->A transition (compiled table),,29100,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0119,Ni49.8Ti42.2Hf8 shape-memory alloy,Ni49.8Ti42.2Hf8,metallic,160.2,,M->A transition (compiled table),,30300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0120,Ni45Ti50Pd5 shape-memory alloy,Ni45Ti50Pd5,metallic,72.2,,M->A transition (compiled table),,25800,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0121,Ni43Ti50Pd7 shape-memory alloy,Ni43Ti50Pd7,metallic,66.2,,M->A transition (compiled table),,23800,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0122,Ni41Ti50Pd9 shape-memory alloy,Ni41Ti50Pd9,metallic,63.25,,M->A transition (compiled table),,18400,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0123,Ni37Ti50Pd13 shape-memory alloy,Ni37Ti50Pd13,metallic,86.05,,M->A transition (compiled table),,16400,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0124,Ni35Ti50Pd15 shape-memory alloy,Ni35Ti50Pd15,metallic,99.35,,M->A transition (compiled table),,17700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0125,Ni33Ti50Pd17 shape-memory alloy,Ni33Ti50Pd17,metallic,118.45,,M->A transition (compiled table),,18700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0126,Ni29Ti50Pd21 shape-memory alloy,Ni29Ti50Pd21,metallic,160.45,,M->A transition (compiled table),,21600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0127,Ni20Ti50Pd30 shape-memory alloy,Ni20Ti50Pd30,metallic,267.85,,M->A transition (compiled table),,29700,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0128,Ni49.5Ti49.5Zr1 shape-memory alloy,Ni49.5Ti49.5Zr1,metallic,100.6,,M->A transition (compiled table),,30600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0129,Ni49.5Ti47.5Zr3 shape-memory alloy,Ni49.5Ti47.5Zr3,metallic,102.7,,M->A transition (compiled table),,23300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0130,Ni49.5Ti45.5Zr5 shape-memory alloy,Ni49.5Ti45.5Zr5,metallic,104,,M->A transition (compiled table),,27000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0131,Ni49.5Ti40.5Zr10 shape-memory alloy,Ni49.5Ti40.5Zr10,metallic,142,,M->A transition (compiled table),,27300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0132,Ni49.5Ti35.5Zr15 shape-memory alloy,Ni49.5Ti35.5Zr15,metallic,221.65,,M->A transition (compiled table),,28800,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0133,Ni49.5Ti30.5Zr20 shape-memory alloy,Ni49.5Ti30.5Zr20,metallic,322.55,,M->A transition (compiled table),,35000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0134,Ni28.5Ti50.5Pt21 shape-memory alloy,Ni28.5Ti50.5Pt21,metallic,330.85,,M->A transition (compiled table),,22400,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0135,Ni43.5Ti50Cu5Co1.5 shape-memory alloy,Ni43.5Ti50Cu5Co1.5,metallic,53.85,,M->A transition (compiled table),,25900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0136,Ni42Ti50Cu5Co3 shape-memory alloy,Ni42Ti50Cu5Co3,metallic,30.2,,M->A transition (compiled table),,23800,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0137,Ni40Ti50Cu5Co5 shape-memory alloy,Ni40Ti50Cu5Co5,metallic,-5.35,,M->A transition (compiled table),,21600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0138,Ni42.9Ti50Cu5Pd2.1 shape-memory alloy,Ni42.9Ti50Cu5Pd2.1,metallic,66.35,,M->A transition (compiled table),,14900,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0139,Ni41.9Ti50Cu5Pd3.1 shape-memory alloy,Ni41.9Ti50Cu5Pd3.1,metallic,73.1,,M->A transition (compiled table),,16000,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0140,Ni39.2Ti50Cu5Pd5.8 shape-memory alloy,Ni39.2Ti50Cu5Pd5.8,metallic,67.45,,M->A transition (compiled table),,14200,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0141,Ni38.3Ti50Cu5Pd6.7 shape-memory alloy,Ni38.3Ti50Cu5Pd6.7,metallic,65.65,,M->A transition (compiled table),,13600,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
+SSPCM-0142,Ni32.2Ti50Cu5Pd12.8 shape-memory alloy,Ni32.2Ti50Cu5Pd12.8,metallic,59.85,,M->A transition (compiled table),,12300,,,,,,,,,,,,,,,https://arxiv.org/abs/1901.06990,,,,,,verified
