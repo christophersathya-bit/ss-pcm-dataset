@@ -12,8 +12,11 @@
 |---|---|
 | Transition T + latent heat | 61 of 63 |
 | cp, low-T phase (~298 K) | NPG, PE, PG/TME, TAM, AMPL (NIST WebBook) |
-| Density + conductivity, both phases | NPG, PE, PG/TME (Benson & Christensen 1984, OCR; check the scan) |
+| Density | 13: NPG, PE, PG/TME (both phases, Benson 1984); TAM, adamantane, CBr4, C2Cl6, AgI, KHF2, VO2, NiTi, Li2SO4 (room-T, Wikipedia infobox); (C12)2MnCl4 (XRD, Salgado-Pizarro 2024) |
+| Thermal conductivity | 5: NPG, PE, PG/TME (Benson 1984); AMPL high-T phase (Akbulut 2009); NiTi (Wikipedia) |
 | cp, high-T phase | none yet. `apparent_cp.py` uses cp_low on both sides |
+
+Each property has its own source column (`rho_source`, `k_source`, `cp_source`). Wikipedia values are a secondary source. Confirm them in a handbook (CRC, Landolt–Börnstein) before publishing. PEG-polyurethane rows note pristine-PEG conductivity (0.29–0.34 W/m·K) for reference only.
 
 Only **NPG, PE and PG/TME** currently have the full set (ρ, k, cp, T, L) for a simulation. Blank cells mean no source has been found yet. They are not zeros.
 
