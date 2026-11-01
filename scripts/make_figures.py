@@ -26,6 +26,10 @@ for ax, g in zip(axs.flat, ORDER):
     ax.scatter([p[0] for p in sel], [p[1] for p in sel], s=34, color=BLUE, edgecolor="white", lw=1.2, zorder=3)
     ax.set_title(f"{g}  (n={len(sel)} plotted)", fontsize=10, color=INK, loc="left")
     ax.set_xlim(-100, 600); ax.set_ylim(0, 320); ax.set_xticks([-100,0,100,200,300,400,500,600])
+from matplotlib.lines import Line2D
+fig.legend(handles=[Line2D([],[],marker="o",ls="",color=BLUE,markersize=7,label="Materials in this class (panel title)"),
+                    Line2D([],[],marker="o",ls="",color="#cfcdc6",markersize=6,label="All other materials (for context)")],
+           loc="upper right", ncol=2, frameon=False, bbox_to_anchor=(0.99, 1.0))
 for ax in axs[1]: ax.set_xlabel("Transition temperature on heating (°C)")
 for ax in axs[:,0]: ax.set_ylabel("Latent heat (J/g)")
 fig.suptitle("Solid–solid PCMs: transition temperature vs latent heat", x=0.01, ha="left", fontsize=12, color=INK)
