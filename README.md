@@ -12,6 +12,9 @@ transition temperatures, latent heats, and related properties, with sources.
 | `data/ss_pcm_dataset.csv` | Main dataset (one row per material/sample) |
 | `data/data_dictionary.md` | Column definitions and units |
 | `data/class_overview.csv` | SS-PCM classes, examples, approximate counts and property ranges |
+| `ml/` | ML-ready files: SMILES + RDKit descriptors, perovskite and mixture features, targets ([ml/README.md](ml/README.md)) |
+| `cfd/` | CFD inputs: ρ, k, cp, latent heat, apparent-cp tables ([cfd/README.md](cfd/README.md)) |
+| `figures/` | Overview plots (SVG) (regenerate with `scripts/make_figures.py`) |
 | `scripts/build_csv.py` | Source of the curated records; regenerates the CSV |
 | `scripts/validate.py` | Sanity checks (ranges, DOIs, T < melting point, duplicates) |
 
@@ -25,6 +28,12 @@ transition temperatures, latent heats, and related properties, with sources.
 | Organometallic – layered hybrid perovskites (Cu, Zn, Mn, Co, Cd, Hg, Ni) | 13 |
 | Inorganic – sulfates, AgI, KHF2, VO2 | 6 |
 | Metallic – NiTi | 1 |
+
+## Figures
+![T vs latent heat](figures/fig1_T_vs_latent_heat.svg)
+![PVT candidates](figures/fig3_pvt_candidates.svg)
+![Coverage](figures/fig2_coverage_by_class.svg)
+![T distribution](figures/fig4_T_distribution.svg)
 
 ## Scope
 **Included:** materials whose storage transition is a true solid-to-solid transition
@@ -50,7 +59,7 @@ df[df.verification_status == "verified"].sort_values("dH_heat_Jg", ascending=Fal
 
 ## Contributing
 1. Add a record in `scripts/build_csv.py` (or edit the CSV) with a DOI.
-2. Run `python scripts/build_csv.py && python scripts/validate.py`.
+2. Run `python scripts/build_csv.py && python scripts/validate.py`, then `build_ml.py`, `build_cfd.py`, `make_figures.py` (needs `rdkit`, `matplotlib`).
 3. Open a pull request.
 
 Priority next steps: confirm `needs_check` rows; source KHF2; add NPG–TAM, PG–TAM and AMPL–TAM binaries; extend the perovskite series to n = 8–18; add carboranes and ionic plastic crystals.
@@ -73,6 +82,7 @@ Priority next steps: confirm `needs_check` rows; source KHF2; add NPG–TAM, PG�
 - *Mater. Sci. Forum* 978, 407 (2020) — NPG/PE binary
 
 ## Changelog
+- **v0.4**: added figures, `ml/` (SMILES, descriptors, targets) and `cfd/` (thermophysical inputs, apparent-cp tables); cp from NIST WebBook; ρ and k from Benson & Christensen 1984.
 - **v0.3**: +35 rows — 10 layered perovskites, 13 PE/TME/NPG ternaries, 2 NPG+PE binaries, 10 plastic crystals; new `needs_check` status.
 - **v0.2**: sourced 9 previously unverified rows (PE, TAM, AMPL, adamantane, cyclohexane, CCl4, AgI, VO2, NiTi); corrected PE (269→297.5 J/g), TAM (285→275.8), AMPL (264→234.7), NiTi (24→13.5), VO2 (51→45); removed Fe (not a practical PCM); added `source_url` column.
 - **v0.1**: initial 29-row seed.
